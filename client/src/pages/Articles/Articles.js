@@ -22,7 +22,7 @@ class Articles extends Component {
   loadArticles = () => {
     API.getArticles()
       .then(res =>
-        this.setState({ articles: res.data, artile: "", date: "", url: "" })
+        this.setState({ articles: res.data, article: "", date: "", url: "" })
       )
       .catch(err => console.log(err));
   };
@@ -42,9 +42,9 @@ class Articles extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.artile && this.state.date) {
+    if (this.state.article && this.state.date) {
       API.saveArticle({
-        artile: this.state.artile,
+        article: this.state.article,
         date: this.state.date,
         url: this.state.url
       })
@@ -63,10 +63,10 @@ class Articles extends Component {
             </Jumbotron>
             <form>
               <Input
-                value={this.state.artile}
+                value={this.state.article}
                 onChange={this.handleInputChange}
-                name="artile"
-                placeholder="artile (required)"
+                name="article"
+                placeholder="article (required)"
               />
               <Input
                 value={this.state.date}
@@ -81,7 +81,7 @@ class Articles extends Component {
                 placeholder="Synopsis (Optional)"
               />
               <FormBtn
-                disabled={!(this.state.date && this.state.artile)}
+                disabled={!(this.state.date && this.state.article)}
                 onClick={this.handleFormSubmit}
               >
                 Submit article
@@ -98,7 +98,7 @@ class Articles extends Component {
                   <ListItem key={article._id}>
                     <Link to={"/Articles/" + article._id}>
                       <strong>
-                        {article.artile} by {article.date}
+                        {article.article} by {article.date}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deletearticle(article._id)} />
