@@ -11,7 +11,7 @@ class Detail extends Component {
   // When this component mounts, grab the article with the _id of this.props.match.params.id
   // e.g. localhost:3000/articles/599dcb67f0f16317844583fc
   componentDidMount() {
-    API.getarticle(this.props.match.params.id)
+    API.getArticle(this.props.match.params.id)
       .then(res => this.setState({ article: res.data }))
       .catch(err => console.log(err));
   }
