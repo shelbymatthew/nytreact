@@ -17,11 +17,13 @@ class Articles extends Component {
 
   componentDidMount() {
     this.loadArticles();
+
   }
 
   loadArticles = () => {
-    API.getArticles()
-      .then(res =>
+    API.getArticle()
+      .then(res => 
+        // this.setState({ articles: res.data, article: "", date: "", url: "" })
         this.setState({ articles: res.data, article: "", date: "", url: "" })
       )
       .catch(err => console.log(err));
@@ -43,7 +45,7 @@ class Articles extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.article && this.state.date) {
-      API.saveArticle({
+      API.saveArtcile({
         article: this.state.article,
         date: this.state.date,
         url: this.state.url
