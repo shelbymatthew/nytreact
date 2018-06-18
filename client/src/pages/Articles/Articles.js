@@ -17,17 +17,16 @@ class Articles extends Component {
 
   componentDidMount() {
     this.loadArticles();
-    console.log("hit")
-
   }
 
-  loadArticles = () => {
+  loadArticles = () => {  
+
     API.getArticles()
       .then(res => 
-        // this.setState({ articles: res.data, article: "", date: "", url: "" })
         this.setState({ articles: res.data, article: "", date: "", url: "" })
+        // this.setState({ articles: res.data, article: "", date: "", url: "" })
       )
-      .catch(err => console.log(err));
+      .catch(err => console.log("here?" + err));
   };
 
   deleteArticle = id => {
@@ -55,6 +54,7 @@ class Articles extends Component {
         .catch(err => console.log(err));
     }
   };
+
 
   render() {
     return (
