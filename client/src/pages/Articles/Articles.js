@@ -62,7 +62,7 @@ class Articles extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Articles Should I Read?</h1>
+              <h1>Search for NYT Articles</h1>
             </Jumbotron>
             <form>
               <Input
@@ -75,13 +75,13 @@ class Articles extends Component {
                 value={this.state.date}
                 onChange={this.handleInputChange}
                 name="date"
-                placeholder="Author (required)"
+                placeholder="Date"
               />
-              <TextArea
+              <Input
                 value={this.state.url}
                 onChange={this.handleInputChange}
                 name="url"
-                placeholder="Synopsis (Optional)"
+                placeholder="URL"
               />
               <FormBtn
                 disabled={!(this.state.date && this.state.article)}
